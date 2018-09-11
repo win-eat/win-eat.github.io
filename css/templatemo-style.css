@@ -21,7 +21,7 @@ html,body {
 
 
 /*---------------------------------------
-    Typorgraphy              
+    Typorgraphy
 -----------------------------------------*/
 
 h1,h2,h3,h4,h5,h6 {
@@ -92,7 +92,7 @@ p {
 }
 
 .section-btn:hover {
-  background: #E3AE57;
+  background: #818181;
   border-color: transparent;
   color: #ffffff;
 }
@@ -121,7 +121,7 @@ p {
 }
 
 #home .container,
-#about .container, 
+#about .container,
 #experience .container,
 #service .container,
 #education .container,
@@ -165,11 +165,11 @@ footer {
 }
 
 .color-yellow {
-  color: #E3AE57;
+  color: #818181;
 }
 
 .bg-yellow {
-  background: #E3AE57;
+  background: #818181;
 }
 
 .bg-white {
@@ -183,7 +183,7 @@ footer {
 
 
 /*---------------------------------------
-    General               
+    General
 -----------------------------------------*/
 
 html{
@@ -191,14 +191,14 @@ html{
 }
 
 a {
-  color: #E3AE57;
+  color: #818181;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
   text-decoration: none !important;
 }
 a:hover, a:active, a:focus {
-  color: #E3AE57;
+  color: #818181;
   outline: none;
 }
 
@@ -218,7 +218,7 @@ a:hover, a:active, a:focus {
 
 
 /*---------------------------------------
-    Preloader section              
+    Preloader section
 -----------------------------------------*/
 
 .preloader {
@@ -252,7 +252,7 @@ a:hover, a:active, a:focus {
   margin-top: -10px;
   margin-left: -10px;
   border-radius: 50%;
-  border: 2px solid #E3AE57;
+  border: 2px solid #818181;
   border-top-color: #f9f9f9;
   animation: spinner .6s linear infinite;
 }
@@ -268,7 +268,7 @@ a:hover, a:active, a:focus {
 
 
 /*---------------------------------------
-    Navigation section              
+    Navigation section
 -----------------------------------------*/
 
 .custom-navbar {
@@ -277,7 +277,7 @@ a:hover, a:active, a:focus {
 }
 
 .custom-navbar .navbar-brand {
-    color: #333;
+    color: #191919;
 	text-shadow: 1px 1px #fff;
     font-weight: bold;
     font-size: 24px;
@@ -297,7 +297,7 @@ a:hover, a:active, a:focus {
 
 .custom-navbar .nav li a:hover {
     background: transparent;
-    color: #E3AE57;
+    color: #818181;
 }
 
 .custom-navbar .navbar-nav > li > a:hover,
@@ -307,7 +307,7 @@ a:hover, a:active, a:focus {
 
 .custom-navbar .nav li.active > a {
     background-color: transparent;
-    color: #E3AE57;
+    color: #818181;
 }
 
 .custom-navbar .navbar-toggle {
@@ -320,7 +320,7 @@ a:hover, a:active, a:focus {
 }
 
 .custom-navbar .navbar-toggle .icon-bar {
-    background: #E3AE57;
+    background: #818181;
     border-color: transparent;
 }
 
@@ -328,7 +328,7 @@ a:hover, a:active, a:focus {
     .custom-navbar {
         padding: 12px 0;
         border-bottom: 0;
-        background: 0 0; 
+        background: 0 0;
     }
     .custom-navbar.top-nav-collapse {
         background: #ffffff;
@@ -341,7 +341,7 @@ a:hover, a:active, a:focus {
 
 
 /*---------------------------------------
-    Home section              
+    Home section
 -----------------------------------------*/
 
 #home h1 {
@@ -379,7 +379,7 @@ a:hover, a:active, a:focus {
 
 
 /*---------------------------------------
-   About section              
+   About section
 -----------------------------------------*/
 
 #about .about-img {
@@ -412,7 +412,7 @@ a:hover, a:active, a:focus {
 
 
 /*---------------------------------------
-    Service section              
+    Service section
 -----------------------------------------*/
 
 #service {
@@ -436,7 +436,7 @@ a:hover, a:active, a:focus {
 
 
 /*---------------------------------------
-    Experience section              
+    Experience section
 -----------------------------------------*/
 
 #experience .experience-img {
@@ -458,11 +458,11 @@ a:hover, a:active, a:focus {
 }
 
 /*---------------------------------------
-    Education section              
+    Education section
 -----------------------------------------*/
 
 #education {
-  background: #E3AE57;
+  background: #818181;
 }
 
 #education .education-img {
@@ -486,7 +486,7 @@ a:hover, a:active, a:focus {
 
 
 /*---------------------------------------
-   Quotes section              
+   Quotes section
 -----------------------------------------*/
 
 #quotes {
@@ -519,7 +519,7 @@ a:hover, a:active, a:focus {
 
 
 /*---------------------------------------
-    Contact section              
+    Contact section
 -----------------------------------------*/
 
 #contact {
@@ -549,7 +549,7 @@ a:hover, a:active, a:focus {
 #contact .form-control {
   background: transparent;
   border: none;
-  border-bottom: 1px solid #E3AE57;
+  border-bottom: 1px solid #818181;
   border-radius: 0px;
   box-shadow: none;
   color: #ffffff;
@@ -588,7 +588,7 @@ a:hover, a:active, a:focus {
 
 
 /*---------------------------------------
-   Footer section              
+   Footer section
 -----------------------------------------*/
 
 footer {
@@ -598,7 +598,7 @@ footer {
 
 
 /*---------------------------------------
-   Social icon             
+   Social icon
 -----------------------------------------*/
 
 .social-icon {
@@ -631,7 +631,7 @@ footer {
 }
 
 .social-icon li a:hover {
-    background: #E3AE57;
+    background: #818181;
     border-color: #ffffff;
     color: #ffffff;
     transform: scale(1.1);
@@ -640,7 +640,7 @@ footer {
 
 
 /*---------------------------------------
-   Mobile Responsive         
+   Mobile Responsive
 -----------------------------------------*/
 
 @media only screen and (max-width: 580px) {
@@ -671,7 +671,7 @@ footer {
   }
 
   #home .container,
-  #about .container, 
+  #about .container,
   #experience .container,
   #service .container,
   #education .container,
