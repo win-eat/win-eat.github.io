@@ -5,12 +5,12 @@
   -------------------------------------------------------------------------------*/
 
   $(window).load(function(){
-    $('.preloader').fadeOut(1000); // set duration in brackets    
+    $('.preloader').fadeOut(500); // set duration in brackets    
   });
 
 
 
-  /* HTML document is loaded. DOM is ready. 
+  /* HTML document is loaded. DOM is ready.
   -------------------------------------------*/
 
   $(document).ready(function() {
@@ -57,7 +57,7 @@
   /*-------------------------------------------------------------------------------
     smoothScroll js
   -------------------------------------------------------------------------------*/
-  
+
     $(function() {
         $('.custom-navbar a, #home a').bind('click', function(event) {
             var $anchor = $(this);
@@ -67,7 +67,7 @@
             event.preventDefault();
         });
     });
-  
+
 
 
   /*-------------------------------------------------------------------------------
@@ -78,4 +78,3 @@
 
 
   });
-
