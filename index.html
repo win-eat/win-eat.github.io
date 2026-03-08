@@ -1,394 +1,1162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Vineet Patil — PLM Engineer & Software Architect</title>
+     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+     <style>
+          :root {
+            --bg: #060d1a;
+            --bg2: #0c1525;
+            --bg3: #0f1d32;
+            --accent: #00e5ff;
+            --accent2: #ff6b35;
+            --accent3: #7fff6e;
+            --text: #e8edf5;
+            --muted: #6a7d96;
+            --border: rgba(0,229,255,0.15);
+            --grid: rgba(0,229,255,0.04);
+          }
 
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="description" content="My name is Vineet Patil. I am professional Web Designer and Web Developer
-I am a Front-End Developer, I have serious passion for UI effects, animations and creating intuitive, dynamic user experiences.
-Let's make Webpages that come to life ">
-<meta name="keywords" content="vineetpatil24x7,VineetPatil,Front-End Developer,Websites,Web Developer,web Designer,web design">
-<meta name="author" content="VineetPatil">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+          * { margin:0; padding:0; box-sizing:border-box; }
 
-<title>Vineet Patil</title>
+          html { scroll-behavior: smooth; }
 
-<link rel="icon" href="images/VP.png">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/animate.css">
-<link rel="stylesheet" href="css/font-awesome.min.css">
-<link rel="stylesheet" href="css/templatemo-style.css">
+          body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+          }
 
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
+          /* BLUEPRINT GRID BACKGROUND */
+          body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+              linear-gradient(var(--grid) 1px, transparent 1px),
+              linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+          }
 
+          /* NOISE TEXTURE */
+          body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+          }
+
+          section, nav, footer { position: relative; z-index: 1; }
+
+          /* ─── NAV ─── */
+          nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 4rem;
+            border-bottom: 1px solid var(--border);
+            background: rgba(6,13,26,0.85);
+            backdrop-filter: blur(20px);
+          }
+
+          .nav-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+          }
+
+          .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+          }
+
+          .nav-links a {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--muted);
+            text-decoration: none;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+          }
+
+          .nav-links a:hover { color: var(--accent); }
+
+          .nav-cta {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 0.5rem 1.2rem;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+          }
+
+          .nav-cta:hover {
+            background: var(--accent);
+            color: var(--bg);
+          }
+
+          /* ─── HERO ─── */
+          #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+          }
+
+          .hero-glow {
+            position: absolute;
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,229,255,0.06) 0%, transparent 70%);
+            top: -150px; right: -150px;
+            pointer-events: none;
+          }
+
+          .hero-glow2 {
+            position: absolute;
+            width: 500px; height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,107,53,0.05) 0%, transparent 70%);
+            bottom: 0; left: -100px;
+            pointer-events: none;
+          }
+
+          .hero-inner {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+          }
+
+          .hero-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+          }
+
+          .hero-tag::before {
+            content: '';
+            display: block;
+            width: 32px; height: 1px;
+            background: var(--accent);
+          }
+
+          h1 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(3rem, 5vw, 5.5rem);
+            line-height: 1.0;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+          }
+
+          .h1-accent { color: var(--accent); }
+          .h1-dim { color: var(--muted); }
+
+          .hero-desc {
+            font-size: 1.05rem;
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+            font-weight: 300;
+          }
+
+          .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+          }
+
+          .btn-primary {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.9rem 2rem;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+          }
+
+          .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.15);
+            transform: translateX(-100%);
+            transition: transform 0.3s;
+          }
+
+          .btn-primary:hover::after { transform: translateX(0); }
+
+          .btn-secondary {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.9rem 2rem;
+            border: 1px solid var(--border);
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s;
+          }
+
+          .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+          }
+
+          /* HERO RIGHT — STATS CARD */
+          .hero-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            position: relative;
+          }
+
+          .hero-card::before {
+            content: 'PROFILE.json';
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--muted);
+            letter-spacing: 0.15em;
+            position: absolute;
+            top: -0.6rem;
+            left: 1.5rem;
+            background: var(--bg2);
+            padding: 0 0.5rem;
+          }
+
+          .hero-card-corner {
+            position: absolute;
+            width: 16px; height: 16px;
+            border-color: var(--accent);
+            border-style: solid;
+          }
+          .hero-card-corner.tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+          .hero-card-corner.tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+          .hero-card-corner.bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+          .hero-card-corner.br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+          .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+          }
+
+          .stat-item { }
+
+          .stat-num {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 2.2rem;
+            color: var(--accent);
+            line-height: 1;
+          }
+
+          .stat-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.62rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 0.3rem;
+          }
+
+          .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 1.5rem 0;
+          }
+
+          .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+          }
+
+          .info-key {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+          }
+
+          .info-val {
+            font-size: 0.85rem;
+            color: var(--text);
+            font-weight: 500;
+          }
+
+          .status-dot {
+            display: inline-block;
+            width: 7px; height: 7px;
+            background: var(--accent3);
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: pulse 2s infinite;
+          }
+
+          @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+          }
+
+          /* ─── SECTION BASE ─── */
+          .section {
+            padding: 6rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+          }
+
+          .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+          }
+
+          .section-num {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+          }
+
+          .section-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 2.2rem;
+            letter-spacing: -0.02em;
+          }
+
+          .section-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+          }
+
+          /* ─── EXPERIENCE ─── */
+          #experience { border-top: 1px solid var(--border); }
+
+          .exp-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+          }
+
+          .exp-item:last-child { border-bottom: none; }
+
+          .exp-left { }
+
+          .exp-company {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+          }
+
+          .exp-period {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+          }
+
+          .exp-location {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.62rem;
+            color: var(--muted);
+            margin-top: 0.3rem;
+          }
+
+          .exp-right { }
+
+          .exp-role {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+          }
+
+          .exp-role span { color: var(--accent); }
+
+          .exp-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+          }
+
+          .exp-bullets li {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.6;
+            padding-left: 1.2rem;
+            position: relative;
+          }
+
+          .exp-bullets li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+          }
+
+          .exp-bullets li strong {
+            color: var(--text);
+            font-weight: 500;
+          }
+
+          /* ─── SKILLS ─── */
+          #skills { border-top: 1px solid var(--border); }
+
+          .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+          }
+
+          .skill-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            padding: 1.8rem;
+            transition: border-color 0.3s, transform 0.3s;
+            position: relative;
+            overflow: hidden;
+          }
+
+          .skill-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+            transform-origin: left;
+          }
+
+          .skill-card:hover::before { transform: scaleX(1); }
+          .skill-card:hover { border-color: rgba(0,229,255,0.3); transform: translateY(-2px); }
+
+          .skill-icon {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+          }
+
+          .skill-cat {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.62rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+          }
+
+          .skill-name {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            color: var(--text);
+          }
+
+          .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+          }
+
+          .tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            padding: 0.25rem 0.6rem;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            letter-spacing: 0.05em;
+          }
+
+          /* ─── METRICS ─── */
+          #metrics {
+            border-top: 1px solid var(--border);
+            background: var(--bg2);
+            border-bottom: 1px solid var(--border);
+          }
+
+          #metrics .section { padding: 5rem 4rem; }
+
+          .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            background: var(--border);
+          }
+
+          .metric-block {
+            background: var(--bg2);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+          }
+
+          .metric-block::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+          }
+
+          .metric-num {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+          }
+
+          .metric-desc {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            color: var(--muted);
+            line-height: 1.5;
+          }
+
+          /* ─── CERTIFICATIONS ─── */
+          #certs { border-top: 1px solid var(--border); }
+
+          .certs-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+          }
+
+          .cert-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            transition: border-color 0.3s;
+          }
+
+          .cert-pill:hover { border-color: rgba(0,229,255,0.4); }
+
+          .cert-badge {
+            width: 36px; height: 36px;
+            background: rgba(0,229,255,0.1);
+            border: 1px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+          }
+
+          .cert-text {}
+          .cert-name {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+          }
+          .cert-issuer {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+          }
+
+          /* ─── EDUCATION ─── */
+          #education { border-top: 1px solid var(--border); }
+
+          .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+          }
+
+          .edu-card {
+            border: 1px solid var(--border);
+            padding: 2rem;
+            background: var(--bg2);
+            position: relative;
+          }
+
+          .edu-deg {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
+          }
+
+          .edu-school {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+          }
+
+          .edu-year {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+          }
+
+          /* ─── CONTACT FOOTER ─── */
+          footer {
+            border-top: 1px solid var(--border);
+            background: var(--bg2);
+            padding: 5rem 4rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+          }
+
+          .footer-eyebrow {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+          }
+
+          .footer-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2rem, 4vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+          }
+
+          .footer-title span { color: var(--accent); }
+
+          .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+          }
+
+          .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            transition: color 0.3s;
+          }
+
+          .contact-link:hover { color: var(--accent); }
+
+          .contact-link-icon { font-size: 1rem; }
+
+          .footer-copy {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            opacity: 0.5;
+          }
+
+          /* ─── ANIMATIONS ─── */
+          .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+          }
+
+          .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
+          /* Stagger delays */
+          .fade-in:nth-child(1) { transition-delay: 0s; }
+          .fade-in:nth-child(2) { transition-delay: 0.1s; }
+          .fade-in:nth-child(3) { transition-delay: 0.2s; }
+          .fade-in:nth-child(4) { transition-delay: 0.3s; }
+          .fade-in:nth-child(5) { transition-delay: 0.4s; }
+          .fade-in:nth-child(6) { transition-delay: 0.5s; }
+
+          /* hero entrance */
+          .hero-tag { animation: fadeSlideUp 0.8s 0.2s both; }
+          h1.main { animation: fadeSlideUp 0.8s 0.35s both; }
+          .hero-desc { animation: fadeSlideUp 0.8s 0.5s both; }
+          .hero-btns { animation: fadeSlideUp 0.8s 0.65s both; }
+          .hero-card { animation: fadeSlideUp 0.8s 0.4s both; }
+
+          @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+
+          /* scanning line */
+          .scan-line {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            animation: scan 4s linear infinite;
+            opacity: 0.3;
+          }
+
+          @keyframes scan {
+            from { top: 0; }
+            to { top: 100%; }
+          }
+
+          @media (max-width: 900px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-card { display: none; }
+            #hero { padding: 7rem 1.5rem 4rem; }
+            .section { padding: 4rem 1.5rem; }
+            .skills-grid { grid-template-columns: 1fr 1fr; }
+            .metrics-grid { grid-template-columns: 1fr 1fr; }
+            .edu-grid { grid-template-columns: 1fr; }
+            .exp-item { grid-template-columns: 1fr; gap: 1rem; }
+            footer { padding: 4rem 1.5rem; }
+          }
+     </style>
 </head>
-<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+<body>
 
+<!-- NAV -->
+<nav>
+     <a class="nav-logo" href="#">VP_PORTFOLIO</a>
+     <ul class="nav-links">
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#metrics">Impact</a></li>
+          <li><a href="#certs">Certs</a></li>
+          <li><a href="#education">Education</a></li>
+     </ul>
+     <a class="nav-cta" href="mailto:Vineet.patil@outlook.com">Get In Touch</a>
+</nav>
 
-<!-- PRE LOADER -->
-
-<div class="preloader">
-     <div class="spinner">
-          <span class="spinner-rotate"></span>
-     </div>
-</div>
-
-
-<!-- Navigation Section -->
-
-<div class="navbar navbar-fixed-top custom-navbar" role="navigation">
-     <div class="container">
-
-          <!-- navbar header -->
-          <div class="navbar-header">
-               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-               </button>
-               <a href="#" class="navbar-brand">VINEET</a>
-          </div>
-
-          <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#home" class="smoothScroll">Home</a></li>
-                    <li><a href="#about" class="smoothScroll">About Me</a></li>
-                    <li><a href="#experience" class="smoothScroll">Experiences</a></li>
-                    <li><a href="#quotes" class="smoothScroll">Testimonial</a></li>
-                    <li><a href="#contact" class="smoothScroll">Contact</a></li>
-               </ul>
-          </div>
-
-     </div>
-</div>
-
-
-<!-- Home Section -->
-
-<section id="home" class="parallax-section">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-6 col-sm-6">
-                    <div class="home-img"></div>
+<!-- HERO -->
+<section id="hero">
+     <div class="hero-glow"></div>
+     <div class="hero-glow2"></div>
+     <div class="hero-inner">
+          <div class="hero-left">
+               <div class="hero-tag">Software Engineer &amp; PLM Specialist</div>
+               <h1 class="main">
+                    <span class="h1-dim">Hi, I'm</span><br>
+                    <span class="h1-accent">Vineet</span><br>
+                    <span>Patil.</span>
+               </h1>
+               <p class="hero-desc">
+                    7+ years building scalable enterprise PLM applications and REST APIs for Fortune 500 clients. Deep expertise in PTC Windchill, Java, Spring Boot, and Azure—turning complex data problems into elegant solutions.
+               </p>
+               <div class="hero-btns">
+                    <a href="#experience" class="btn-primary">View My Work</a>
+                    <a href="mailto:Vineet.patil@outlook.com" class="btn-secondary">Contact Me</a>
                </div>
+          </div>
 
-               <div class="col-md-6 col-sm-6">
-                    <div class="home-thumb">
-                         <div class="section-title">
-                              <h4 class="wow fadeInUp" data-wow-delay="0.3s">welcome to my website</h4>
-                              <h1 class="wow fadeInUp" data-wow-delay="0.6s">Hello, I am <strong>VINEET</strong> currently based in Pune city.</h1>
-                              <p class="wow fadeInUp" data-wow-delay="0.9s">Web Devloper with passion for desigining beautiful and functional user experience</p>
+          <div class="hero-card">
+               <div class="scan-line"></div>
+               <span class="hero-card-corner tl"></span>
+               <span class="hero-card-corner tr"></span>
+               <span class="hero-card-corner bl"></span>
+               <span class="hero-card-corner br"></span>
 
-                              <a href="#about" class="wow fadeInUp smoothScroll section-btn btn btn-success" data-wow-delay="1.4s">Get Started</a>
-
-                         </div>
+               <div class="stat-grid">
+                    <div class="stat-item">
+                         <div class="stat-num">7+</div>
+                         <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                         <div class="stat-num">800+</div>
+                         <div class="stat-label">Global Users Served</div>
+                    </div>
+                    <div class="stat-item">
+                         <div class="stat-num">500K</div>
+                         <div class="stat-label">Records Migrated</div>
+                    </div>
+                    <div class="stat-item">
+                         <div class="stat-num">15+</div>
+                         <div class="stat-label">REST APIs Built</div>
                     </div>
                </div>
 
+               <div class="divider"></div>
 
-          </div>
-     </div>
-</section>
-
-
-<!-- About Section -->
-
-<section id="about" class="parallax-section">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-6 col-sm-12">
-                    <div class="about-thumb">
-                         <div class="wow fadeInUp section-title" data-wow-delay="0.4s">
-                              <h1>About Me</h1>
-                              <p class="color-yellow">My name is Vineet. I am professional Web Designer and Web Developer</p>
-                         </div>
-                         <div class="wow fadeInUp" data-wow-delay="0.8s">
-                              <p>I am a Front-End Developer, I have serious passion for UI effects, animations and creating intuitive, dynamic user experiences. </p>
-                              <p>Let's make Webpages that come to life .</p>
-                         </div>
-                    </div>
+               <div class="info-row">
+                    <span class="info-key">STATUS</span>
+                    <span class="info-val"><span class="status-dot"></span>Available</span>
                </div>
-
-               <div class="col-md-3 col-sm-6">
-                    <div class="background-image about-img"></div>
+               <div class="info-row">
+                    <span class="info-key">LOCATION</span>
+                    <span class="info-val">Pune, India</span>
                </div>
-
-               <div class="bg-yellow col-md-3 col-sm-6">
-                    <div class="skill-thumb">
-                         <div class="wow fadeInUp section-title color-white" data-wow-delay="1.2s">
-                              <h1>My Skills</h1>
-                              <p class="color-white">HTML ,CSS, JS, Web Design,Python</p>
-                         </div>
-
-                         <div class=" wow fadeInUp skills-thumb" data-wow-delay="1.6s">
-                         <strong>Frontend Design</strong>
-                              <span class="color-white pull-right">80%</span>
-                                   <div class="progress">
-                                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-                                   </div>
-
-                         <strong>HTML5 & CSS3</strong>
-                              <span class="color-white pull-right">70%</span>
-                                   <div class="progress">
-                                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
-                                   </div>
-
-                         <strong>Python</strong>
-                              <span class="color-white pull-right">60%</span>
-                                   <div class="progress">
-                                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                                   </div>
-                         </div>
-
-                    </div>
+               <div class="info-row">
+                    <span class="info-key">CURRENT_ROLE</span>
+                    <span class="info-val">Consultant @ Deloitte</span>
                </div>
-
+               <div class="info-row">
+                    <span class="info-key">SPECIALITY</span>
+                    <span class="info-val">PLM / BOM / APIs</span>
+               </div>
           </div>
      </div>
 </section>
 
-
-<!-- Service Section -->
-
-<section id="service" class="parallax-section">
-     <div class="container">
-          <div class="row">
-
-               <div class="bg-yellow col-md-3 col-sm-6">
-                    <div class="wow fadeInUp color-white service-thumb" data-wow-delay="0.8s">
-                         <i class="fa fa-desktop"></i>
-                              <h3>Interface Design</h3>
-                              <p class="color-white">Faster load times and lag free interaction, fluid design is my highest priority.</p>
-                    </div>
-               </div>
-
-               <div class="col-md-3 col-sm-6">
-                    <div class="wow fadeInUp color-white service-thumb" data-wow-delay="1.2s">
-                         <i class="fa fa-paper-plane"></i>
-                              <h3>Media Strategy</h3>
-                              <p class="color-white">Strong preference for easy to use, intuitive UX/UI.</p>
-                    </div>
-               </div>
-
-               <div class="bg-dark col-md-3 col-sm-6">
-                    <div class="wow fadeInUp color-white service-thumb" data-wow-delay="1.6s">
-                         <i class="fa fa-table"></i>
-                              <h3>Mobile App</h3>
-                              <p class="color-white">Mobile apps and Websites don't have to be static,I love making pages come to life.</p>
-                    </div>
-               </div>
-
-               <div class="bg-white col-md-3 col-sm-6">
-                    <div class="wow fadeInUp service-thumb" data-wow-delay="1.8s">
-                         <i class="fa fa-html5"></i>
-                              <h3>Coding</h3>
-                              <p>FrontEnd Developer who focuses on writing Clean, Efficient and Elegant Code</p>
-                    </div>
-               </div>
-
+<!-- EXPERIENCE -->
+<section id="experience">
+     <div class="section">
+          <div class="section-header">
+               <span class="section-num">01</span>
+               <h2 class="section-title">Experience</h2>
+               <div class="section-line"></div>
           </div>
-     </div>
-</section>
 
-
-<!-- Experience Section -->
-
-<section id="experience" class="parallax-section">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-6 col-sm-6">
-                    <div class="background-image experience-img"></div>
+          <div class="exp-item fade-in">
+               <div class="exp-left">
+                    <div class="exp-company">Deloitte USI</div>
+                    <div class="exp-period">2025 — Present</div>
+                    <div class="exp-location">Pune, India</div>
                </div>
-
-               <div class="col-md-6 col-sm-6">
-                    <div class="color-white experience-thumb">
-                         <div class="wow fadeInUp section-title" data-wow-delay="0.8s">
-                              <h1>My Experiences</h1>
-                              <p class="color-white">Previous companies and my tasks</p>
-                         </div>
-
-                         <div class="wow fadeInUp color-white media" data-wow-delay="1.2s">
-                              <div class="media-object media-left">
-                                   <i class="fa fa-laptop"></i>
-                              </div>
-                              <div class="media-body">
-                                   <h3 class="media-heading">Freelace Web Devlopment<small>2015 Jul - Present</small></h3>
-                                   <p class="color-white">HTML desigining and maintainance for Website Pinnacle Electrodes Pvt.Ltd </p>
-                              </div>
-                         </div>
-
-                         <div class="wow fadeInUp color-white media" data-wow-delay="1.6s">
-                              <div class="media-object media-left">
-                                   <i class="fa fa-laptop"></i>
-                              </div>
-                              <div class="media-body">
-                                   <h3 class="media-heading">Web Designer <small>2015 SEP - 2015 Jan</small></h3>
-                                   <p class="color-white">Web Desiginer at BIZbuZZ LLP</p>
-                              </div>
-                         </div>
-
-                    </div>
-               </div>
-
-          </div>
-     </div>
-</section>
-
-
-<!-- Education Section -->
-
-<section id="education" class="parallax-section">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-6 col-sm-6">
-                    <div class="color-white education-thumb">
-                         <div class="wow fadeInUp section-title" data-wow-delay="0.8s">
-                              <h1>My Education</h1>
-                              <p class="color-white">Brief Info about my education </p>
-                         </div>
-
-                         <div class="wow fadeInUp color-white media" data-wow-delay="1.2s">
-                              <div class="media-object media-left">
-                                   <i class="fa fa-laptop"></i>
-                              </div>
-                              <div class="media-body">
-                                   <h3 class="media-heading">Bachelor Computer Engineering <small>2015 - 2019</small></h3>
-                                   <p class="color-white">Graduated From Pune University</p>
-                              </div>
-                         </div>
-
-                         <div class="wow fadeInUp color-white media" data-wow-delay="1.6s">
-                              <div class="media-object media-left">
-                                   <i class="fa fa-laptop"></i>
-                              </div>
-                              <div class="media-body">
-                                   <h3 class="media-heading">Diploma in Computer Engineering <small>2011 - 2014</small></h3>
-                                   <p class="color-white">Graduted form Mumbai Univercity</p>
-                              </div>
-                         </div>
-
-                    </div>
-               </div>
-
-               <div class="col-md-6 col-sm-6">
-                    <div class="background-image education-img"></div>
-               </div>
-
-          </div>
-     </div>
-</section>
-
-
-<!-- Quotes Section -->
-
-<section id="quotes" class="parallax-section">
-     <div class="overlay"></div>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-offset-1 col-md-10 col-sm-12">
-                    <i class="wow fadeInUp fa fa-star" data-wow-delay="0.6s"></i>
-                    <h2 class="wow fadeInUp" data-wow-delay="0.8s">Coming Soon....</h2>
-                    <p class="wow fadeInUp" data-wow-delay="1s"></p>
-               </div>
-
-          </div>
-     </div>
-</section>
-
-
-<!-- Contact Section -->
-
-<section id="contact" class="parallax-section">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-6 col-sm-12">
-                    <div class="contact-form">
-                         <div class="wow fadeInUp section-title" data-wow-delay="0.2s">
-                              <h1 class="color-white">Say hello..</h1>
-                              <p class="color-white">Maybe for Mettings or a Cup of Coffee</p>
-                         </div>
-
-                         <div id="contact-form">
-                              <form action="#template-mo" method="post">
-                                   <div class="wow fadeInUp" data-wow-delay="1s">
-                                        <input name="fullname" type="text" class="form-control" id="fullname" placeholder="Your Name">
-                                   </div>
-                                   <div class="wow fadeInUp" data-wow-delay="1.2s">
-                                        <input name="email" type="email" class="form-control" id="email" placeholder="Your Email">
-                                   </div>
-                                   <div class="wow fadeInUp" data-wow-delay="1.4s">
-                                        <textarea name="message" rows="2" class="form-control" id="message" placeholder="Write your message..."></textarea>
-                                   </div>
-                                   <div class="wow fadeInUp col-md-6 col-sm-8" data-wow-delay="1.6s">
-                                        <input name="submit" type="submit" class="form-control" id="submit" value="Send">
-                                   </div>
-                              </form>
-                         </div>
-
-                    </div>
-               </div>
-
-               <div class="col-md-3 col-sm-6">
-                    <div class="background-image contact-img"></div>
-               </div>
-
-               <div class="bg-dark col-md-3 col-sm-6">
-                    <div class="contact-thumb">
-                         <div class="wow fadeInUp contact-info" data-wow-delay="0.6s">
-                              <h3 class="color-white">Visit my office</h3>
-                              <p>Pune</p>
-                         </div>
-
-                         <div class="wow fadeInUp contact-info" data-wow-delay="0.8s">
-                              <h3 class="color-white">Contact.</h3>
-                              <p><i class="fa fa-phone"></i>+918055899242</p>
-                              <p><i class="fa fa-envelope-o"></i> <a href="vineetpatil24x7@gmail.com">vineetpatil24x7@gmail.com</a></p>
-                              <p><i class="fa fa-globe"></i> <a href="#">win-eat.github.io</a></p>
-                         </div>
-
-                    </div>
-               </div>
-
-          </div>
-     </div>
-</section>
-
-
-<!-- Footer Section -->
-
-<footer>
-	<div class="container">
-		<div class="row">
-
-               <div class="col-md-12 col-sm-12">
-                    <div class="wow fadeInUp footer-copyright" data-wow-delay="1.8s">
-                         <p>Copyright &copy; 2018 Vineet Patil
-                    </div>
-				<ul class="wow fadeInUp social-icon" data-wow-delay="2s">
-                         <li><a href="http://facebook.com/vineet.patil2" class="fa fa-facebook"></a></li>
-                         <li><a href="http://www.google.com/+VineetPatil" class="fa fa-google-plus"></a></li>
-                         <li><a href="http://www.linkedin.com/in/vineet-patil-1a6683158" class="fa fa-linkedin"></a></li>
+               <div class="exp-right">
+                    <div class="exp-role">Consultant — <span>PLM Architecture</span></div>
+                    <ul class="exp-bullets">
+                         <li>Leading <strong>Windchill 13</strong> installation &amp; configuration for Aerospace &amp; Defence clients, delivering enterprise PLM POCs.</li>
+                         <li>Architected BOM transformation solutions reducing data processing complexity by <strong>40%</strong>.</li>
+                         <li>Implemented MPM Link configurations for manufacturing–product data integration; optimised server performance achieving <strong>35% improvement</strong> in response times.</li>
+                         <li>ThingWorx &amp; Codebeamer installation, configuration and integration.</li>
                     </ul>
                </div>
+          </div>
 
-		</div>
-	</div>
+          <div class="exp-item fade-in">
+               <div class="exp-left">
+                    <div class="exp-company">John Deere</div>
+                    <div class="exp-period">2021 — 2025</div>
+                    <div class="exp-location">Pune, India</div>
+               </div>
+               <div class="exp-right">
+                    <div class="exp-role">Senior Software Engineer — <span>Windchill &amp; APIs</span></div>
+                    <ul class="exp-bullets">
+                         <li>Designed <strong>15+ custom REST APIs</strong> in Spring Boot, improving data retrieval efficiency by 60% and enabling real-time external system integration.</li>
+                         <li>Engineered database migration for <strong>500,000+ records</strong> with 99.8% accuracy using complex database links.</li>
+                         <li>Built custom migration utilities automating 80% of manual MPM tasks, cutting project timeline by <strong>3 months</strong>.</li>
+                         <li>Developed Custom Windchill REST API processing <strong>200 GB+</strong> enterprise data; solutions served <strong>800+ global users</strong>.</li>
+                         <li>Established EDL staging DB integration handling 1,000+ daily transactions; wizard validators reducing data errors by 75%.</li>
+                    </ul>
+               </div>
+          </div>
+
+          <div class="exp-item fade-in">
+               <div class="exp-left">
+                    <div class="exp-company">Kirloskar Oil Engines</div>
+                    <div class="exp-period">2020 — 2021</div>
+                    <div class="exp-location">via KloudQ Technologies</div>
+               </div>
+               <div class="exp-right">
+                    <div class="exp-role">Senior System Engineer — <span>Integration &amp; Analytics</span></div>
+                    <ul class="exp-bullets">
+                         <li>Completed Windchill rehosting with <strong>zero downtime</strong>; designed OIR, lifecycle, and workflow configurations.</li>
+                         <li>Integrated Power BI with Windchill DB for real-time executive analytics; built ERP integration automating inventory for <strong>10,000+ SKUs</strong>.</li>
+                         <li>Deployed Dynatrace monitoring reducing incident response time by <strong>60%</strong>.</li>
+                         <li>Led Servigistics InService deployment for <strong>200+ technicians</strong>.</li>
+                    </ul>
+               </div>
+          </div>
+
+          <div class="exp-item fade-in">
+               <div class="exp-left">
+                    <div class="exp-company">Kirloskar Oil Engines</div>
+                    <div class="exp-period">2019 — 2020</div>
+                    <div class="exp-location">via ModelCam Engineering</div>
+               </div>
+               <div class="exp-right">
+                    <div class="exp-role">PLM Engineer — <span>Customisation &amp; Config</span></div>
+                    <ul class="exp-bullets">
+                         <li>Delivered Windchill customisations and workflow configurations improving operational efficiency by <strong>30%</strong>.</li>
+                         <li>Provided PLM technical consultation and support to cross-functional teams.</li>
+                    </ul>
+               </div>
+          </div>
+
+     </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+     <div class="section">
+          <div class="section-header">
+               <span class="section-num">02</span>
+               <h2 class="section-title">Technical Skills</h2>
+               <div class="section-line"></div>
+          </div>
+
+          <div class="skills-grid">
+               <div class="skill-card fade-in">
+                    <div class="skill-icon">⚙️</div>
+                    <div class="skill-cat">Core</div>
+                    <div class="skill-name">Languages</div>
+                    <div class="skill-tags">
+                         <span class="tag">Java (Advanced)</span>
+                         <span class="tag">JavaScript</span>
+                         <span class="tag">SQL</span>
+                         <span class="tag">HTML/CSS</span>
+                    </div>
+               </div>
+               <div class="skill-card fade-in">
+                    <div class="skill-icon">🧩</div>
+                    <div class="skill-cat">Frameworks</div>
+                    <div class="skill-name">Backend &amp; Frontend</div>
+                    <div class="skill-tags">
+                         <span class="tag">Spring Boot</span>
+                         <span class="tag">React.js</span>
+                         <span class="tag">RESTful APIs</span>
+                         <span class="tag">JSP</span>
+                         <span class="tag">Maven</span>
+                    </div>
+               </div>
+               <div class="skill-card fade-in">
+                    <div class="skill-icon">🏭</div>
+                    <div class="skill-cat">Speciality</div>
+                    <div class="skill-name">PLM / PTC Stack</div>
+                    <div class="skill-tags">
+                         <span class="tag">Windchill 10–13</span>
+                         <span class="tag">MPM Link</span>
+                         <span class="tag">PDM Link</span>
+                         <span class="tag">PTC InService</span>
+                         <span class="tag">ThingWorx</span>
+                         <span class="tag">Codebeamer</span>
+                    </div>
+               </div>
+               <div class="skill-card fade-in">
+                    <div class="skill-icon">☁️</div>
+                    <div class="skill-cat">Cloud &amp; DevOps</div>
+                    <div class="skill-name">Infrastructure</div>
+                    <div class="skill-tags">
+                         <span class="tag">Azure</span>
+                         <span class="tag">Git</span>
+                         <span class="tag">Dynatrace</span>
+                         <span class="tag">Power BI</span>
+                         <span class="tag">IntelliJ</span>
+                    </div>
+               </div>
+               <div class="skill-card fade-in">
+                    <div class="skill-icon">🗄️</div>
+                    <div class="skill-cat">Data</div>
+                    <div class="skill-name">Databases &amp; Migration</div>
+                    <div class="skill-tags">
+                         <span class="tag">MySQL</span>
+                         <span class="tag">Oracle</span>
+                         <span class="tag">SQL Server</span>
+                         <span class="tag">DataBricks EDL</span>
+                         <span class="tag">Data Migration</span>
+                    </div>
+               </div>
+               <div class="skill-card fade-in">
+                    <div class="skill-icon">🏗️</div>
+                    <div class="skill-cat">Architecture</div>
+                    <div class="skill-name">Design &amp; Process</div>
+                    <div class="skill-tags">
+                         <span class="tag">Microservices</span>
+                         <span class="tag">API Design</span>
+                         <span class="tag">BOM Transformation</span>
+                         <span class="tag">System Integration</span>
+                         <span class="tag">Agile/Scrum</span>
+                    </div>
+               </div>
+          </div>
+
+     </div>
+</section>
+
+<!-- METRICS -->
+<section id="metrics">
+     <div class="section">
+          <div class="section-header">
+               <span class="section-num">03</span>
+               <h2 class="section-title">Impact by Numbers</h2>
+               <div class="section-line"></div>
+          </div>
+          <div class="metrics-grid">
+               <div class="metric-block fade-in">
+                    <div class="metric-num">60%</div>
+                    <div class="metric-desc">Improved data retrieval efficiency via custom Spring Boot APIs</div>
+               </div>
+               <div class="metric-block fade-in">
+                    <div class="metric-num">99.8%</div>
+                    <div class="metric-desc">Accuracy on 500K+ record database migration</div>
+               </div>
+               <div class="metric-block fade-in">
+                    <div class="metric-num">3 mo.</div>
+                    <div class="metric-desc">Project timeline cut by automating 80% of MPM migration tasks</div>
+               </div>
+               <div class="metric-block fade-in">
+                    <div class="metric-num">200GB</div>
+                    <div class="metric-desc">Enterprise data processed through custom Windchill REST API</div>
+               </div>
+          </div>
+     </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+     <div class="section">
+          <div class="section-header">
+               <span class="section-num">04</span>
+               <h2 class="section-title">Certifications</h2>
+               <div class="section-line"></div>
+          </div>
+          <div class="certs-row">
+               <div class="cert-pill fade-in">
+                    <div class="cert-badge">🏆</div>
+                    <div class="cert-text">
+                         <div class="cert-name">PTC Certified Windchill Practitioner</div>
+                         <div class="cert-issuer">PTC Inc.</div>
+                    </div>
+               </div>
+               <div class="cert-pill fade-in">
+                    <div class="cert-badge">🔄</div>
+                    <div class="cert-text">
+                         <div class="cert-name">Certified Scrum Developer</div>
+                         <div class="cert-issuer">Scrum Alliance</div>
+                    </div>
+               </div>
+               <div class="cert-pill fade-in">
+                    <div class="cert-badge">☕</div>
+                    <div class="cert-text">
+                         <div class="cert-name">Java Developer Certification</div>
+                         <div class="cert-issuer">Oracle</div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+     <div class="section">
+          <div class="section-header">
+               <span class="section-num">05</span>
+               <h2 class="section-title">Education</h2>
+               <div class="section-line"></div>
+          </div>
+          <div class="edu-grid">
+               <div class="edu-card fade-in">
+                    <div class="edu-deg">B.E., Computer Engineering</div>
+                    <div class="edu-school">Zeal College of Engineering &amp; Research (ZCOER), Pune</div>
+                    <div class="edu-year">2015 – 2019</div>
+               </div>
+               <div class="edu-card fade-in">
+                    <div class="edu-deg">Diploma, Computer Engineering</div>
+                    <div class="edu-school">Sandip Institute of Polytechnic, Nashik</div>
+                    <div class="edu-year">2012 – 2015</div>
+               </div>
+          </div>
+     </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+     <div class="footer-eyebrow">Open to new opportunities</div>
+     <h2 class="footer-title">Let's build something<br><span>remarkable.</span></h2>
+     <div class="contact-links">
+          <a href="mailto:Vineet.patil@outlook.com" class="contact-link">
+               <span class="contact-link-icon">✉</span>
+               Vineet.patil@outlook.com
+          </a>
+          <a href="tel:+918055899242" class="contact-link">
+               <span class="contact-link-icon">📱</span>
+               +91 80558 99242
+          </a>
+          <span class="contact-link">
+      <span class="contact-link-icon">📍</span>
+      Pune, India
+    </span>
+     </div>
+     <p class="footer-copy">© 2025 Vineet Patil — Software Engineer &amp; PLM Specialist</p>
 </footer>
 
-<!-- SCRIPTS -->
+<script>
+     // Scroll fade-in observer
+     const observer = new IntersectionObserver((entries) => {
+       entries.forEach(e => {
+         if (e.isIntersecting) {
+           e.target.classList.add('visible');
+         }
+       });
+     }, { threshold: 0.1 });
 
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.parallax.js"></script>
-<script src="js/smoothscroll.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/custom.js"></script>
+     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+     // Smooth nav highlight
+     const sections = document.querySelectorAll('section[id]');
+     const navLinks = document.querySelectorAll('.nav-links a');
+
+     window.addEventListener('scroll', () => {
+       let current = '';
+       sections.forEach(sec => {
+         if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+       });
+       navLinks.forEach(a => {
+         a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
+       });
+     });
+</script>
 
 </body>
 </html>
